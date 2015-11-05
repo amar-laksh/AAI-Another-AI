@@ -26,8 +26,6 @@ class NI():
       choice=r.choice(self.messages)
       self.speak(choice)
       
-   
-   
    def greetings(self):
       import time as t
       import re
@@ -44,7 +42,6 @@ class NI():
        import os
        import nltk
        import sys
-
        tokens = nltk.word_tokenize(sentence)
        tagged = nltk.pos_tag(tokens)
        if string == "verb":
@@ -72,9 +69,6 @@ class NI():
 
 
    def sbj_tree(self):
-       
-       nothing_variable = 0
-       #print "question, nouns, pronouns, adverbs, verbs = ",self.questions,self.nouns,self.pronouns,self.adverbs,self.verbs
        if (self.adverbs != [] or self.verbs != []):
           if self.nouns != []:
              try:
@@ -100,14 +94,6 @@ class NI():
               self.speak("The subject of the sentence should be,"+str(self.subjects))
 
        except:
-          nothing_variable = 1
-       """
-       print "RESULTING SUBJECT TREE -"
-       print self.sbjtree
-       print "##################"
-       print " "
-       print "##################"
-       """
        print "SUBJECT LIST"
        print self.subjects
        print "##################"
@@ -118,21 +104,13 @@ class NI():
        import sys
        tokens = nltk.word_tokenize(word)
        tagged = nltk.pos_tag(tokens)
-       """
-       print "################"
-       print tagged
-       print "##################"
-       """
        self.find_in(word,"question")
        self.find_in(word,"verb")
        self.find_in(word,"noun")
        self.find_in(word,"pronoun")
        self.find_in(word,"adverb")
        self.sbj_tree()
-       #print self.verbs, self.nouns, self.pronouns, self.adverbs
        
-
-
    def speak(self,sent):
        import pyttsx
        engine = pyttsx.init()
@@ -183,14 +161,7 @@ class NI():
             self.flag1 = 1
 
    def read(self):   #(,index):
-      #sentences = []
       self.sent = raw_input("Please enter your sentence -> ")
-      """
-      f = open('learning.txt','r')
-      for i in f.readlines():
-         sentences.append(i)
-      self.sent = sentences[index]
-      """
       
 ############################### NOW THE PROGRAM STARTS #########################
 if __name__ == "__main__":
@@ -215,7 +186,4 @@ if __name__ == "__main__":
              i = i + 1
       except:
          break
-
-
-
 
